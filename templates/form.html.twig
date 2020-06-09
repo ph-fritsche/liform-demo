@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+{% block stylesheets %}
+    {% if stylesheets is defined %}
+        {% for s in stylesheets %}
+            <link rel="stylesheet" href="{{s.url}}" crossorigin="anonymous"/>
+        {% endfor %}
+    {% endif %}
+    {{ encore_entry_link_tags('liform') }}
+{% endblock %}
+
+    </head>
+    <body>
+
+{% block body %}
+    {% if formParams is defined %}
+        {{ react_component('DemoForm', formParams) }}
+    {% endif %}
+{% endblock %}
+
+{% block scripts %}
+    {{ encore_entry_script_tags('liform') }}
+    {% if scripts is defined %}
+        {% for s in scripts %}
+            <script src="{{s.url}}" crossorigin="anonymous"></script>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+    </body>
+</html>

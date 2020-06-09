@@ -1,0 +1,4 @@
+limenius_react:
+    serverside_rendering:
+        server_bundle_path: '%kernel.project_dir%/build/liform.js'
+        trace: true

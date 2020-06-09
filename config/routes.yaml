@@ -1,0 +1,3 @@
+liform:
+    path: /
+    controller: App\Controller\LiformController
