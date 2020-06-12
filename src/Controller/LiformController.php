@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use Pitch\Liform\LiformInterface;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -32,6 +34,10 @@ class LiformController extends AbstractController
         }
 
         $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $this->validateRequiredFields($form);
+        }
 
         $view = $form->createView();
 
@@ -74,6 +80,17 @@ class LiformController extends AbstractController
                     || $request->headers->get('content-type') === 'application/json'
                 ;
             }
+        }
+    }
+
+    private function validateRequiredFields(
+        FormInterface $form
+    ) {
+        if ($form->isRequired() && $form->isEmpty()) {
+            $form->addError(new FormError('This field is required.'));
+        }
+        foreach ($form as $child) {
+            $this->validateRequiredFields($child);
         }
     }
 }
