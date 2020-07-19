@@ -1,16 +1,18 @@
 {
   "dependencies": {
-    "final-form": "^4.20.0",
+    "final-form": "^4.20.1",
     "final-form-arrays": "^3.0.2",
-    "liform-react-final": "^0.0.1-1",
+    "liform-react-final": "^1.0.0-1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-final-form": "^6.5.0",
+    "react-final-form": "^6.5.1",
     "react-final-form-arrays": "^3.1.1",
-    "react-on-rails": "^11.3.0"
+    "react-on-rails": "^12.0.1"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.10.1",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
     "@symfony/webpack-encore": "^0.30.2"
   }
 }
